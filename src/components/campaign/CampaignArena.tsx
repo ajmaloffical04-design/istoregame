@@ -186,13 +186,13 @@ export default function CampaignArena() {
             }`}
           >
             {/* Top Badge */}
-            <div className="bg-[#737373] text-white text-[7px] md:text-[10px] font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1 md:gap-1.5">
+            <div className="bg-[#737373] text-white text-[8px] md:text-[10px] font-bold px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1.5">
               <Image 
                 src="/ios.png" 
                 alt="iOS Logo" 
-                width={10} 
-                height={10} 
-                className="object-contain rounded-full md:w-[12px] md:h-[12px]" 
+                width={14} 
+                height={14} 
+                className="object-contain rounded-full md:w-[18px] md:h-[18px]" 
                 unoptimized
               />
               TEAM APPLE
@@ -253,13 +253,13 @@ export default function CampaignArena() {
             }`}
           >
             {/* Top Badge */}
-            <div className="bg-black text-white text-[7px] md:text-[10px] font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1 md:gap-1.5">
+            <div className="bg-black text-white text-[8px] md:text-[10px] font-bold px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1.5">
               <Image 
                 src="/andriod.png" 
                 alt="Android Logo" 
-                width={10} 
-                height={10} 
-                className="object-contain rounded-full md:w-[12px] md:h-[12px]" 
+                width={14} 
+                height={14} 
+                className="object-contain rounded-full md:w-[18px] md:h-[18px]" 
                 unoptimized
               />
               TEAM ANDROID
