@@ -151,15 +151,15 @@ export default function CampaignArena() {
         </div>
 
         {/* Title & Subtitle */}
-        <h1 className="text-3xl md:text-4xl font-extrabold text-[#0F1E36] tracking-tight mb-2 text-center">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-[#0F1E36] tracking-tight mb-2 text-center px-2">
           Cast your vote and watch the battle unfold!
         </h1>
-        <p className="text-sm md:text-base text-gray-500 font-medium mb-12 text-center">
+        <p className="text-xs md:text-base text-gray-500 font-medium mb-8 md:text-center">
           Your vote decides the winner 🏆
         </p>
 
         {/* Voting Arena */}
-        <div className="relative w-full flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-8 mb-12">
+        <div className="relative w-full flex flex-row items-stretch justify-center gap-3 md:gap-8 mb-12">
           
           {/* Lightning Graphic behind VS */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none hidden md:flex flex-col items-center gap-2 opacity-30">
@@ -169,15 +169,15 @@ export default function CampaignArena() {
           </div>
 
           {/* VS Badge */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none hidden md:flex items-center justify-center w-16 h-16 bg-[#1A253C] rounded-full border-4 border-white shadow-lg">
-            <span className="text-white font-black italic text-lg tracking-wider">VS</span>
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none flex items-center justify-center w-10 h-10 md:w-16 md:h-16 bg-[#1A253C] rounded-full border-2 md:border-4 border-white shadow-lg">
+            <span className="text-white font-black italic text-xs md:text-lg tracking-wider">VS</span>
           </div>
 
           {/* Card: Apple */}
           <motion.div
             onClick={() => handleVote('apple')}
             whileHover={!voted ? { y: -6, transition: { duration: 0.2 } } : {}}
-            className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[2rem] p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
+            className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
               voted === 'apple' 
                 ? 'border-2 border-[#737373] shadow-[0_12px_30px_rgba(115,115,115,0.12)]' 
                 : voted 
@@ -186,13 +186,13 @@ export default function CampaignArena() {
             }`}
           >
             {/* Top Badge */}
-            <div className="bg-[#737373] text-white text-[10px] font-bold px-3 py-1.5 rounded-full tracking-wider uppercase mb-6 flex items-center gap-1.5">
+            <div className="bg-[#737373] text-white text-[7px] md:text-[10px] font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1 md:gap-1.5">
               <Image 
                 src="/ios.png" 
                 alt="iOS Logo" 
-                width={12} 
-                height={12} 
-                className="object-contain rounded-full" 
+                width={10} 
+                height={10} 
+                className="object-contain rounded-full md:w-[12px] md:h-[12px]" 
                 unoptimized
               />
               TEAM APPLE
@@ -200,16 +200,16 @@ export default function CampaignArena() {
 
             {/* Checkmark Badge if voted */}
             {voted === 'apple' && (
-              <div className="absolute top-4 right-4 w-7 h-7 bg-[#737373] rounded-full flex items-center justify-center shadow-md">
-                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-5 h-5 md:w-7 md:h-7 bg-[#737373] rounded-full flex items-center justify-center shadow-md">
+                <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
             )}
 
             {/* Image Container */}
-            <div className="w-full relative flex items-center justify-center mb-6" style={{ height: '240px' }}>
-              <div className="relative w-4/5 h-full">
+            <div className="w-full relative flex items-center justify-center mb-3 md:mb-6 h-[140px] md:h-[240px]">
+              <div className="relative w-full h-full">
                 <Image 
                   src="/iphone.jpg" 
                   alt="Apple iPhone" 
@@ -221,37 +221,30 @@ export default function CampaignArena() {
             </div>
 
             {/* Content */}
-            <h3 className="text-2xl font-bold text-[#0F1E36] mb-1">iPhone</h3>
-            <p className="text-xs text-gray-400 mb-6 text-center">Innovation. Performance. Style.</p>
+            <h3 className="text-base md:text-2xl font-bold text-[#0F1E36] mb-0.5">iPhone</h3>
+            <p className="text-[9px] md:text-xs text-gray-400 mb-4 md:mb-6 text-center leading-tight">Innovation. Performance. Style.</p>
 
             {/* Bottom Row */}
-            <div className="w-full flex items-center justify-between mt-auto border-t border-gray-50 pt-4">
+            <div className="w-full flex flex-col sm:flex-row items-center gap-2 sm:gap-0 justify-between mt-auto border-t border-gray-50 pt-3">
               {/* Avatars */}
-              <div className="flex -space-x-2.5">
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80" alt="voter" />
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80" alt="voter" />
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=80&fit=crop&q=80" alt="voter" />
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&fit=crop&q=80" alt="voter" />
+              <div className="flex -space-x-1.5 md:-space-x-2.5">
+                <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80" alt="voter" />
+                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm hidden md:block" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80" alt="voter" />
+                <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=80&fit=crop&q=80" alt="voter" />
+                <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&fit=crop&q=80" alt="voter" />
               </div>
               {/* Votes Pill */}
-              <div className="bg-gray-100 text-gray-700 font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
+              <div className="bg-gray-100 text-gray-700 font-bold text-[9px] md:text-xs px-2 md:px-3.5 py-1 md:py-1.5 rounded-full shadow-sm">
                 {results ? `${results.apple.toLocaleString()} votes` : '...'}
               </div>
             </div>
           </motion.div>
 
-          {/* Mobile VS Badge */}
-          <div className="flex md:hidden items-center justify-center my-2">
-            <div className="w-12 h-12 bg-[#1A253C] rounded-full border-2 border-white flex items-center justify-center shadow-md">
-              <span className="text-white font-black italic text-sm">VS</span>
-            </div>
-          </div>
-
           {/* Card: Android */}
           <motion.div
             onClick={() => handleVote('android')}
             whileHover={!voted ? { y: -6, transition: { duration: 0.2 } } : {}}
-            className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[2rem] p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
+            className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
               voted === 'android' 
                 ? 'border-2 border-black shadow-[0_12px_30px_rgba(0,0,0,0.12)]' 
                 : voted 
@@ -260,13 +253,13 @@ export default function CampaignArena() {
             }`}
           >
             {/* Top Badge */}
-            <div className="bg-black text-white text-[10px] font-bold px-3 py-1.5 rounded-full tracking-wider uppercase mb-6 flex items-center gap-1.5">
+            <div className="bg-black text-white text-[7px] md:text-[10px] font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1 md:gap-1.5">
               <Image 
                 src="/andriod.png" 
                 alt="Android Logo" 
-                width={12} 
-                height={12} 
-                className="object-contain rounded-full" 
+                width={10} 
+                height={10} 
+                className="object-contain rounded-full md:w-[12px] md:h-[12px]" 
                 unoptimized
               />
               TEAM ANDROID
@@ -274,16 +267,16 @@ export default function CampaignArena() {
 
             {/* Checkmark Badge if voted */}
             {voted === 'android' && (
-              <div className="absolute top-4 right-4 w-7 h-7 bg-black rounded-full flex items-center justify-center shadow-md">
-                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-5 h-5 md:w-7 md:h-7 bg-black rounded-full flex items-center justify-center shadow-md">
+                <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
             )}
 
             {/* Image Container */}
-            <div className="w-full relative flex items-center justify-center mb-6" style={{ height: '240px' }}>
-              <div className="relative w-4/5 h-full">
+            <div className="w-full relative flex items-center justify-center mb-3 md:mb-6 h-[140px] md:h-[240px]">
+              <div className="relative w-full h-full">
                 <Image 
                   src="/samsang.jpg" 
                   alt="Android Samsung" 
@@ -295,19 +288,19 @@ export default function CampaignArena() {
             </div>
 
             {/* Content */}
-            <h3 className="text-2xl font-bold text-[#0F1E36] mb-1">Android</h3>
-            <p className="text-xs text-gray-400 mb-6 text-center">Freedom. Choice. Customization.</p>
+            <h3 className="text-base md:text-2xl font-bold text-[#0F1E36] mb-0.5">Android</h3>
+            <p className="text-[9px] md:text-xs text-gray-400 mb-4 md:mb-6 text-center leading-tight">Freedom. Choice. Customization.</p>
 
             {/* Bottom Row */}
-            <div className="w-full flex items-center justify-between mt-auto border-t border-gray-50 pt-4">
+            <div className="w-full flex flex-col sm:flex-row items-center gap-2 sm:gap-0 justify-between mt-auto border-t border-gray-50 pt-3">
               {/* Avatars */}
-              <div className="flex -space-x-2.5">
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&fit=crop&q=80" alt="voter" />
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&fit=crop&q=80" alt="voter" />
-                <img className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=80&fit=crop&q=80" alt="voter" />
+              <div className="flex -space-x-1.5 md:-space-x-2.5">
+                <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&fit=crop&q=80" alt="voter" />
+                <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&fit=crop&q=80" alt="voter" />
+                <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=80&fit=crop&q=80" alt="voter" />
               </div>
               {/* Votes Pill */}
-              <div className="bg-gray-100 text-black font-bold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
+              <div className="bg-gray-100 text-black font-bold text-[9px] md:text-xs px-2 md:px-3.5 py-1 md:py-1.5 rounded-full shadow-sm">
                 {results ? `${results.android.toLocaleString()} votes` : '...'}
               </div>
             </div>
