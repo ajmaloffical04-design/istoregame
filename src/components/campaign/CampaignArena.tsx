@@ -322,13 +322,13 @@ export default function CampaignArena() {
                     initial={{ width: 0 }} 
                     animate={{ width: `${Math.max(results.applePercent, 25)}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="absolute left-1.5 top-1.5 bottom-1.5 bg-[#1F8A4D] rounded-xl flex items-center pl-2 z-0 shadow-sm pr-4 overflow-hidden"
+                    className="absolute left-1.5 top-1.5 bottom-1.5 bg-gradient-to-r from-[#2EAA68] to-[#1F8A4D] rounded-xl flex items-center pl-2 z-0 shadow-sm pr-4 overflow-hidden"
                   >
                     <div className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden p-1.5 shrink-0">
                       <Image src="/ios.png" alt="iOS Logo" width={24} height={24} className="object-contain" unoptimized />
                     </div>
-                    <div className="ml-3 flex flex-col text-white whitespace-nowrap text-left">
-                      <span className="font-extrabold text-sm leading-tight">Team Apple</span>
+                    <div className="ml-3 flex flex-col text-white whitespace-nowrap text-left font-sans">
+                      <span className="font-extrabold text-sm leading-tight tracking-tight">Team Apple</span>
                       <span className="text-[10px] text-emerald-100 font-medium">{results.apple.toLocaleString()} votes</span>
                     </div>
                   </motion.div>
@@ -347,13 +347,13 @@ export default function CampaignArena() {
                     initial={{ width: 0 }} 
                     animate={{ width: `${Math.max(results.androidPercent, 25)}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="absolute left-1.5 top-1.5 bottom-1.5 bg-[#7F3DAB] rounded-xl flex items-center pl-2 z-0 shadow-sm pr-4 overflow-hidden"
+                    className="absolute left-1.5 top-1.5 bottom-1.5 bg-gradient-to-r from-[#984DDF] to-[#7F3DAB] rounded-xl flex items-center pl-2 z-0 shadow-sm pr-4 overflow-hidden"
                   >
                     <div className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden p-1.5 shrink-0">
                       <Image src="/andriod.png" alt="Android Logo" width={24} height={24} className="object-contain" unoptimized />
                     </div>
-                    <div className="ml-3 flex flex-col text-white whitespace-nowrap text-left">
-                      <span className="font-extrabold text-sm leading-tight">Team Android</span>
+                    <div className="ml-3 flex flex-col text-white whitespace-nowrap text-left font-sans">
+                      <span className="font-extrabold text-sm leading-tight tracking-tight">Team Android</span>
                       <span className="text-[10px] text-purple-100 font-medium">{results.android.toLocaleString()} votes</span>
                     </div>
                   </motion.div>
