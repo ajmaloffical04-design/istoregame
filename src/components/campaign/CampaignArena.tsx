@@ -425,7 +425,79 @@ export default function CampaignArena() {
           )}
         </AnimatePresence>
 
+        {/* Campaign Notes Scroll Section */}
+        <Skiper41 />
+
       </main>
     </div>
   );
 }
+
+// Progressive Blur Overlay Component
+type ProgressiveBlurProps = {
+  className?: string;
+  backgroundColor?: string;
+  position?: "top" | "bottom";
+  height?: string;
+  blurAmount?: string;
+};
+
+const ProgressiveBlur = ({
+  className = "",
+  backgroundColor = "#F9FAFC",
+  position = "top",
+  height = "100px",
+  blurAmount = "4px",
+}: ProgressiveBlurProps) => {
+  const isTop = position === "top";
+
+  return (
+    <div
+      className={`pointer-events-none absolute left-0 w-full select-none z-10 ${className}`}
+      style={{
+        [isTop ? "top" : "bottom"]: 0,
+        height,
+        background: isTop
+          ? `linear-gradient(to top, transparent, ${backgroundColor})`
+          : `linear-gradient(to bottom, transparent, ${backgroundColor})`,
+        maskImage: isTop
+          ? `linear-gradient(to bottom, ${backgroundColor} 50%, transparent)`
+          : `linear-gradient(to top, ${backgroundColor} 50%, transparent)`,
+        WebkitBackdropFilter: `blur(${blurAmount})`,
+        backdropFilter: `blur(${blurAmount})`,
+        WebkitUserSelect: "none",
+        userSelect: "none",
+      }}
+    />
+  );
+};
+
+// Campaign Scrollable Widget
+const Skiper41 = () => {
+  return (
+    <div className="relative flex h-[350px] w-full flex-col items-center justify-center bg-[#F9FAFC] text-gray-400 border border-gray-150 rounded-[2rem] overflow-hidden mt-8 shadow-sm">
+      <ProgressiveBlur position="top" backgroundColor="#F9FAFC" />
+      <ProgressiveBlur position="bottom" backgroundColor="#F9FAFC" />
+
+      <div className="flex h-full w-full flex-col items-center overflow-y-scroll scrollbar-none py-10 px-6">
+        <div className="grid content-start justify-items-center gap-6 text-center text-gray-800 mb-6">
+          <span className="relative max-w-[15ch] text-[10px] uppercase font-bold tracking-wider leading-tight opacity-40 after:absolute after:left-1/2 after:top-full after:h-12 after:w-px after:bg-gradient-to-b after:from-gray-300 after:to-transparent after:content-[''] after:mt-2">
+            Scroll down to see details
+          </span>
+        </div>
+
+        <div className="w-full max-w-lg space-y-8 px-4 text-justify mt-8">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div key={index} className="text-xs leading-relaxed text-gray-500">
+              <strong className="text-[#0F1E36] block mb-1 text-sm font-bold">Campaign Note</strong>
+              This campaign concept has been exclusively designed for <strong className="text-[#0F1E36] font-bold">iStore Digital</strong> to enhance audience engagement through an immersive voting campaign. The experience enables users to vote, monitor live results, and share the campaign, encouraging greater participation, organic reach, and stronger brand engagement.
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export { ProgressiveBlur, Skiper41 };
+
