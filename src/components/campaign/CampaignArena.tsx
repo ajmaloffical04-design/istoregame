@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { BarChart3, Users, Clock, Flame, Info, Menu, Share2 } from "lucide-react";
+import { BarChart3, Users, Clock, Flame, Info, Menu, Share2, Zap } from "lucide-react";
 import confetti from "canvas-confetti";
 import { supabase } from "@/lib/supabase";
 
@@ -145,8 +145,9 @@ export default function CampaignArena() {
       <main className="w-full max-w-4xl px-6 flex flex-col items-center mt-6 z-20">
         {/* Hero Badge */}
         <div className="inline-flex items-center gap-1.5 bg-[#E8F8F0] px-4 py-1.5 rounded-full mb-6 border border-emerald-100 shadow-sm">
-          <span className="text-emerald-700 text-xs font-bold tracking-wide flex items-center gap-1">
-            ⚡ THE ULTIMATE BATTLE
+          <Zap className="w-3.5 h-3.5 text-emerald-700" />
+          <span className="text-emerald-700 text-xs font-extrabold tracking-wide">
+            THE ULTIMATE BATTLE
           </span>
         </div>
 
