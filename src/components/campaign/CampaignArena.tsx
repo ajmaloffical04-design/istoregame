@@ -27,23 +27,26 @@ export default function CampaignArena() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white font-sans text-zinc-800 flex flex-col items-center pb-24">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-sans text-white flex flex-col items-center pb-24">
       {/* Header */}
       <header className="w-full max-w-4xl px-4 py-6 flex items-center justify-between">
-        <div className="bg-[#e9e9e9] px-6 py-3 rounded-full flex items-center justify-center">
-          {/* Logo placeholder - User needs to add logo.png to public */}
-          <div className="text-xl font-black text-[#698a67] tracking-tight flex items-baseline">
-            ISTORE<span className="text-xs ml-1 text-zinc-500 font-medium">®</span>
-            <span className="text-sm font-semibold text-zinc-600 ml-2">DIGITAL</span>
-          </div>
+        <div className="bg-white px-6 py-2 rounded-full flex items-center justify-center shadow-lg">
+          <Image 
+            src="/logo.png" 
+            alt="iStore Digital Logo" 
+            width={160} 
+            height={40} 
+            className="object-contain"
+            unoptimized
+          />
         </div>
-        <button className="bg-[#e9e9e9] w-12 h-12 rounded-full flex items-center justify-center hover:bg-zinc-300 transition">
-          <Menu className="w-5 h-5 text-zinc-600" />
+        <button className="bg-white/10 backdrop-blur-sm border border-white/10 w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/20 transition shadow-lg">
+          <Menu className="w-5 h-5 text-white" />
         </button>
       </header>
 
       <main className="w-full max-w-3xl px-4 flex flex-col items-center mt-8">
-        <p className="text-lg text-zinc-500 font-medium mb-12 text-center">
+        <p className="text-lg text-gray-300 font-medium mb-12 text-center">
           Cast your vote and watch the battle unfold!
         </p>
 
@@ -51,7 +54,7 @@ export default function CampaignArena() {
         <div className="relative w-full flex flex-row items-center justify-center gap-4 sm:gap-8 mb-16">
           {/* VS Badge */}
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-8 z-20 pointer-events-none">
-            <h2 className="text-5xl font-black italic text-black">VS</h2>
+            <h2 className="text-5xl font-black italic text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">VS</h2>
           </div>
 
           {/* Apple Card */}
@@ -60,7 +63,7 @@ export default function CampaignArena() {
             onClick={() => handleVote('apple')}
             whileHover={!voted ? { scale: 1.02, y: -4 } : {}}
             whileTap={!voted ? { scale: 0.98 } : {}}
-            className={`flex-1 relative bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-xl hover:border-zinc-300' : ''} ${voted === 'apple' ? 'ring-4 ring-blue-500 border-transparent shadow-2xl scale-[1.02]' : voted ? 'opacity-50 grayscale' : 'shadow-md'}`}
+            className={`flex-1 relative bg-white border border-white/20 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:border-white/50' : ''} ${voted === 'apple' ? 'ring-4 ring-[#00a8ff] border-transparent shadow-[0_0_40px_rgba(0,168,255,0.3)] scale-[1.02]' : voted ? 'opacity-40 grayscale' : 'shadow-xl'}`}
             style={{ aspectRatio: '3/4' }}
           >
             <div className="absolute inset-0 p-4">
@@ -69,8 +72,8 @@ export default function CampaignArena() {
                   src="/iphone.jpg" 
                   alt="Apple iPhone" 
                   fill 
-                  className="object-cover object-center" 
-                  unoptimized // Temporary for missing local image
+                  className="object-contain object-center" 
+                  unoptimized
                 />
               </div>
             </div>
@@ -82,7 +85,7 @@ export default function CampaignArena() {
             onClick={() => handleVote('android')}
             whileHover={!voted ? { scale: 1.02, y: -4 } : {}}
             whileTap={!voted ? { scale: 0.98 } : {}}
-            className={`flex-1 relative bg-white border border-zinc-200 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-xl hover:border-zinc-300' : ''} ${voted === 'android' ? 'ring-4 ring-[#6c5ce7] border-transparent shadow-2xl scale-[1.02]' : voted ? 'opacity-50 grayscale' : 'shadow-md'}`}
+            className={`flex-1 relative bg-white border border-white/20 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:border-white/50' : ''} ${voted === 'android' ? 'ring-4 ring-[#6c5ce7] border-transparent shadow-[0_0_40px_rgba(108,92,231,0.3)] scale-[1.02]' : voted ? 'opacity-40 grayscale' : 'shadow-xl'}`}
             style={{ aspectRatio: '3/4' }}
           >
             <div className="absolute inset-0 p-4">
@@ -91,8 +94,8 @@ export default function CampaignArena() {
                   src="/samsang.jpg" 
                   alt="Android Samsung" 
                   fill 
-                  className="object-cover object-center" 
-                  unoptimized // Temporary for missing local image
+                  className="object-contain object-center" 
+                  unoptimized
                 />
               </div>
             </div>
@@ -107,30 +110,30 @@ export default function CampaignArena() {
               animate={{ opacity: 1, y: 0 }}
               className="w-full mb-12"
             >
-              <div className="w-full bg-[#1a1c24] rounded-full p-2 relative h-16 shadow-xl flex items-center">
+              <div className="w-full bg-gray-900/80 backdrop-blur-md border border-white/10 rounded-full p-2 relative h-16 shadow-2xl flex items-center">
                 {/* Background progress fills */}
                 <div className="absolute inset-y-2 left-2 right-2 rounded-full overflow-hidden flex">
                   <motion.div 
                     initial={{ width: 0 }} 
                     animate={{ width: `${results.applePercent}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="h-full bg-[#00a8ff]"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400"
                   />
                   <motion.div 
                     initial={{ width: 0 }} 
                     animate={{ width: `${results.androidPercent}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="h-full bg-[#6c5ce7]"
+                    className="h-full bg-gradient-to-r from-purple-600 to-purple-400"
                   />
                 </div>
                 
                 {/* Labels overlay */}
                 <div className="relative z-10 w-full flex items-center justify-between px-6 text-white font-bold">
-                  <span className="text-xl">{results.applePercent}%</span>
-                  <div className="bg-[#2a2b4a] bg-opacity-80 backdrop-blur px-4 py-1.5 rounded-full text-sm font-black tracking-widest text-[#aeb4ff]">
+                  <span className="text-xl drop-shadow-md">{results.applePercent}%</span>
+                  <div className="bg-gray-900/60 backdrop-blur-sm border border-white/10 px-4 py-1.5 rounded-full text-sm font-black tracking-widest text-white shadow-lg">
                     {results.total} VOTES
                   </div>
-                  <span className="text-xl">{results.androidPercent}%</span>
+                  <span className="text-xl drop-shadow-md">{results.androidPercent}%</span>
                 </div>
               </div>
             </motion.div>
@@ -144,48 +147,48 @@ export default function CampaignArena() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="w-full bg-[#242936] rounded-3xl p-6 shadow-2xl text-white"
+              className="w-full bg-gray-900/80 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl text-white"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-[#a73b5f]/20 p-2 rounded-lg">
-                  <BarChart3 className="w-5 h-5 text-[#ff6b81]" />
+                <div className="bg-red-500/20 p-2 rounded-lg">
+                  <BarChart3 className="w-5 h-5 text-red-400" />
                 </div>
                 <h3 className="text-xl font-bold">Battle Stats & Insights</h3>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-[#1f2430] p-4 rounded-2xl flex flex-col items-center text-center">
-                  <div className="bg-[#00a8ff]/10 p-2 rounded-xl mb-3">
-                    <Users className="w-5 h-5 text-[#00a8ff]" />
+                <div className="bg-gray-800/80 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center shadow-inner">
+                  <div className="bg-blue-500/10 p-2 rounded-xl mb-3">
+                    <Users className="w-5 h-5 text-blue-400" />
                   </div>
                   <span className="text-xl font-bold mb-1">{results.total}</span>
-                  <span className="text-[10px] text-zinc-400 uppercase tracking-wider">Total Votes Cast</span>
+                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Total Votes Cast</span>
                 </div>
 
-                <div className="bg-[#1f2430] p-4 rounded-2xl flex flex-col items-center text-center">
-                  <div className="bg-[#a29bfe]/10 p-2 rounded-xl mb-3">
-                    <Clock className="w-5 h-5 text-[#a29bfe]" />
+                <div className="bg-gray-800/80 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center shadow-inner">
+                  <div className="bg-purple-500/10 p-2 rounded-xl mb-3">
+                    <Clock className="w-5 h-5 text-purple-400" />
                   </div>
                   <span className="text-xl font-bold mb-1">Today</span>
-                  <span className="text-[10px] text-zinc-400 uppercase tracking-wider">Battle Started</span>
+                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Battle Started</span>
                 </div>
 
-                <div className="bg-[#1f2430] p-4 rounded-2xl flex flex-col items-center text-center">
-                  <div className="bg-[#ffa502]/10 p-2 rounded-xl mb-3">
-                    <Flame className="w-5 h-5 text-[#ffa502]" />
+                <div className="bg-gray-800/80 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center shadow-inner">
+                  <div className="bg-orange-500/10 p-2 rounded-xl mb-3">
+                    <Flame className="w-5 h-5 text-orange-400" />
                   </div>
                   <span className="text-xl font-bold mb-1">Growing</span>
-                  <span className="text-[10px] text-zinc-400 uppercase tracking-wider">Engagement Level</span>
+                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Engagement Level</span>
                 </div>
               </div>
 
               {/* Analysis Box */}
-              <div className="bg-[#3b2a33] border border-[#5c3743] rounded-2xl p-4 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[#ff6b81]">
+              <div className="bg-red-950/30 border border-red-500/20 rounded-2xl p-4 flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-red-400">
                   <Info className="w-4 h-4" />
                   <span className="text-sm font-bold">Battle Analysis</span>
                 </div>
-                <p className="text-xs text-zinc-300 leading-relaxed">
+                <p className="text-xs text-gray-300 leading-relaxed">
                   {results.applePercent > results.androidPercent 
                     ? `Apple is dominating this battle with a commanding lead of ${results.applePercent}%. While Android is fighting back, the clear preference among voters is evident. Can the underdog make a comeback?`
                     : `Android is dominating this battle with a commanding lead of ${results.androidPercent}%. While Apple is fighting back, the clear preference among voters is evident. Can the underdog make a comeback?`}
