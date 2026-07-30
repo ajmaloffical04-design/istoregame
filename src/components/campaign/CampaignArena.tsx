@@ -370,7 +370,8 @@ export default function CampaignArena() {
         {/* Total Votes Pill */}
         {results && (
           <div className="inline-flex items-center gap-1.5 bg-white border border-gray-100 px-4 py-2 rounded-full mb-8 shadow-sm text-xs font-semibold text-gray-500">
-            <span>👥 {results.total.toLocaleString()} total votes cast</span>
+            <Users className="w-3.5 h-3.5 text-gray-400" />
+            <span>{results.total.toLocaleString()} total votes cast</span>
           </div>
         )}
 
