@@ -191,7 +191,7 @@ export default function CampaignArena() {
 
         {/* Results Bar */}
         <AnimatePresence>
-          {voted && results && (
+          {results && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -241,7 +241,7 @@ export default function CampaignArena() {
 
         {/* Stats Section */}
         <AnimatePresence>
-          {voted && results && (
+          {results && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
