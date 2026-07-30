@@ -393,7 +393,7 @@ export default function CampaignArena() {
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="bg-gray-50/50 border border-gray-100 p-4 rounded-2xl flex flex-col items-center text-center">
                   <div className="bg-white p-2 rounded-xl mb-3 shadow-sm border border-gray-100">
-                    <Users className="w-5 h-5 text-emerald-600" />
+                    <Users className="w-5 h-5 text-gray-500" />
                   </div>
                   <span className="text-xl font-bold mb-1 text-[#0F1E36]">{results.total.toLocaleString()}</span>
                   <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Total Votes</span>
@@ -401,7 +401,7 @@ export default function CampaignArena() {
 
                 <div className="bg-gray-50/50 border border-gray-100 p-4 rounded-2xl flex flex-col items-center text-center">
                   <div className="bg-white p-2 rounded-xl mb-3 shadow-sm border border-gray-100">
-                    <Clock className="w-5 h-5 text-purple-600" />
+                    <Clock className="w-5 h-5 text-gray-500" />
                   </div>
                   <span className="text-xl font-bold mb-1 text-[#0F1E36]">Live</span>
                   <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Realtime Sync</span>
@@ -409,7 +409,7 @@ export default function CampaignArena() {
 
                 <div className="bg-gray-50/50 border border-gray-100 p-4 rounded-2xl flex flex-col items-center text-center">
                   <div className="bg-white p-2 rounded-xl mb-3 shadow-sm border border-gray-100">
-                    <Flame className="w-5 h-5 text-orange-500" />
+                    <Flame className="w-5 h-5 text-gray-500" />
                   </div>
                   <span className="text-xl font-bold mb-1 text-[#0F1E36]">Active</span>
                   <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Engagement</span>
@@ -419,7 +419,7 @@ export default function CampaignArena() {
               {/* Analysis Box */}
               <div className="bg-gray-50 border border-gray-150 rounded-2xl p-4 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-gray-700">
-                  <Info className="w-4 h-4 text-indigo-500" />
+                  <Info className="w-4 h-4 text-gray-500" />
                   <span className="text-sm font-bold text-[#0F1E36]">Battle Analysis</span>
                 </div>
                 <p className="text-xs text-gray-500 leading-relaxed">
