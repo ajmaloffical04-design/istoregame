@@ -475,7 +475,7 @@ const ProgressiveBlur = ({
 // Campaign Scrollable Widget
 const Skiper41 = () => {
   return (
-    <div className="relative flex h-[350px] w-full flex-col items-center justify-center bg-[#F9FAFC] text-gray-400 border border-gray-150 rounded-[2rem] overflow-hidden mt-8 shadow-sm">
+    <div className="relative flex h-[350px] w-full flex-col items-center justify-center bg-transparent text-gray-400 overflow-hidden mt-8">
       <ProgressiveBlur position="top" backgroundColor="#F9FAFC" />
       <ProgressiveBlur position="bottom" backgroundColor="#F9FAFC" />
 
