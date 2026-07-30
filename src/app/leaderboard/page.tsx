@@ -18,6 +18,7 @@ export default function LeaderboardPage() {
       } catch {
         // Handle error silently
       }
+    };
 
     fetchResults();
 
