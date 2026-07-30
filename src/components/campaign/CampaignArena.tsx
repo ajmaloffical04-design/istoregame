@@ -117,10 +117,10 @@ export default function CampaignArena() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-sans text-white flex flex-col items-center pb-24">
+    <div className="w-full min-h-screen bg-[#FAF9F6] font-sans text-gray-900 flex flex-col items-center pb-24">
       {/* Header */}
       <header className="w-full max-w-4xl px-4 py-6 flex items-center justify-between">
-        <div className="bg-white px-6 py-2 rounded-full flex items-center justify-center shadow-lg">
+        <div className="bg-white px-6 py-2 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
           <Image 
             src="/logo.png" 
             alt="iStore Digital Logo" 
@@ -130,20 +130,20 @@ export default function CampaignArena() {
             unoptimized
           />
         </div>
-        <button className="bg-white/10 backdrop-blur-sm border border-white/10 w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/20 transition shadow-lg">
-          <Menu className="w-5 h-5 text-white" />
+        <button className="bg-white border border-gray-200 w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-50 transition shadow-sm">
+          <Menu className="w-5 h-5 text-gray-600" />
         </button>
       </header>
 
       <main className="w-full max-w-3xl px-4 flex flex-col items-center mt-8">
-        <p className="text-lg text-gray-300 font-medium mb-12 text-center">
+        <p className="text-lg text-gray-500 font-medium mb-12 text-center">
           Cast your vote and watch the battle unfold!
         </p>
 
         {/* Voting Cards Section */}
         <div className="relative w-full flex flex-row items-center justify-center gap-4 sm:gap-8 mb-16">
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-8 z-20 pointer-events-none">
-            <h2 className="text-5xl font-black italic text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">VS</h2>
+            <h2 className="text-5xl font-black italic text-gray-800 drop-shadow-md">VS</h2>
           </div>
 
           <motion.button
@@ -151,7 +151,7 @@ export default function CampaignArena() {
             onClick={() => handleVote('apple')}
             whileHover={!voted ? { scale: 1.02, y: -4 } : {}}
             whileTap={!voted ? { scale: 0.98 } : {}}
-            className={`flex-1 relative bg-white border border-white/20 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:border-white/50' : ''} ${voted === 'apple' ? 'ring-4 ring-[#00a8ff] border-transparent shadow-[0_0_40px_rgba(0,168,255,0.3)] scale-[1.02]' : voted ? 'opacity-40 grayscale' : 'shadow-xl'}`}
+            className={`flex-1 relative bg-white border border-gray-200 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-xl hover:border-gray-300' : ''} ${voted === 'apple' ? 'ring-4 ring-black border-transparent shadow-xl scale-[1.02]' : voted ? 'opacity-40 grayscale' : 'shadow-sm'}`}
             style={{ aspectRatio: '3/4' }}
           >
             <div className="absolute inset-0 p-4">
@@ -172,7 +172,7 @@ export default function CampaignArena() {
             onClick={() => handleVote('android')}
             whileHover={!voted ? { scale: 1.02, y: -4 } : {}}
             whileTap={!voted ? { scale: 0.98 } : {}}
-            className={`flex-1 relative bg-white border border-white/20 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:border-white/50' : ''} ${voted === 'android' ? 'ring-4 ring-[#6c5ce7] border-transparent shadow-[0_0_40px_rgba(108,92,231,0.3)] scale-[1.02]' : voted ? 'opacity-40 grayscale' : 'shadow-xl'}`}
+            className={`flex-1 relative bg-white border border-gray-200 rounded-[2.5rem] overflow-hidden transition-all duration-300 ${!voted ? 'hover:shadow-xl hover:border-gray-300' : ''} ${voted === 'android' ? 'ring-4 ring-[#3DDC84] border-transparent shadow-xl scale-[1.02]' : voted ? 'opacity-40 grayscale' : 'shadow-sm'}`}
             style={{ aspectRatio: '3/4' }}
           >
             <div className="absolute inset-0 p-4">
@@ -198,40 +198,50 @@ export default function CampaignArena() {
               className="w-full mb-12 flex flex-col gap-6"
             >
               {/* Apple Progress Section */}
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-between items-center text-white">
-                  <span className="font-bold text-xl flex items-center gap-2">🍎 Team Apple</span>
-                  <span className="font-bold text-xl">{results.applePercent}%</span>
+              <div className="flex items-center w-full gap-4">
+                <div className="w-16 text-right text-gray-500 text-2xl font-light">
+                  {results.applePercent}%
                 </div>
-                <div className="w-full bg-gray-900 border border-white/10 rounded-full h-8 overflow-hidden relative shadow-inner">
+                <div className="flex-1 relative h-16">
                   <motion.div 
                     initial={{ width: 0 }} 
-                    animate={{ width: `${results.applePercent}%` }} 
+                    animate={{ width: `${Math.max(results.applePercent, 15)}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400 absolute left-0 top-0"
-                  />
-                </div>
-                <div className="text-right text-gray-400 text-sm font-semibold tracking-wide">
-                  {results.apple.toLocaleString()} Votes
+                    className="h-full bg-black rounded-r-2xl rounded-l-md flex items-center relative shadow-sm"
+                  >
+                    <div className="px-4 flex flex-col text-white whitespace-nowrap overflow-hidden">
+                      <span className="font-medium text-lg leading-tight">Team Apple</span>
+                    </div>
+                    
+                    {/* Icon Badge */}
+                    <div className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-2 border-black flex items-center justify-center shadow-sm text-lg z-10">
+                      🍎
+                    </div>
+                  </motion.div>
                 </div>
               </div>
 
               {/* Android Progress Section */}
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-between items-center text-white">
-                  <span className="font-bold text-xl flex items-center gap-2">🤖 Team Android</span>
-                  <span className="font-bold text-xl">{results.androidPercent}%</span>
+              <div className="flex items-center w-full gap-4">
+                <div className="w-16 text-right text-gray-500 text-2xl font-light">
+                  {results.androidPercent}%
                 </div>
-                <div className="w-full bg-gray-900 border border-white/10 rounded-full h-8 overflow-hidden relative shadow-inner">
+                <div className="flex-1 relative h-16">
                   <motion.div 
                     initial={{ width: 0 }} 
-                    animate={{ width: `${results.androidPercent}%` }} 
+                    animate={{ width: `${Math.max(results.androidPercent, 15)}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="h-full bg-gradient-to-r from-purple-600 to-purple-400 absolute left-0 top-0"
-                  />
-                </div>
-                <div className="text-right text-gray-400 text-sm font-semibold tracking-wide">
-                  {results.android.toLocaleString()} Votes
+                    className="h-full bg-[#3DDC84] rounded-r-2xl rounded-l-md flex items-center relative shadow-sm"
+                  >
+                    <div className="px-4 flex flex-col text-white whitespace-nowrap overflow-hidden">
+                      <span className="font-medium text-lg leading-tight">Team Android</span>
+                    </div>
+                    
+                    {/* Icon Badge */}
+                    <div className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-2 border-[#3DDC84] flex items-center justify-center shadow-sm text-lg z-10">
+                      🤖
+                    </div>
+                  </motion.div>
                 </div>
               </div>
 
@@ -246,48 +256,48 @@ export default function CampaignArena() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="w-full bg-gray-900/80 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl text-white"
+              className="w-full bg-white border border-gray-200 rounded-3xl p-6 shadow-sm text-gray-900"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-red-500/20 p-2 rounded-lg">
-                  <BarChart3 className="w-5 h-5 text-red-400" />
+                <div className="bg-gray-100 p-2 rounded-lg">
+                  <BarChart3 className="w-5 h-5 text-gray-600" />
                 </div>
                 <h3 className="text-xl font-bold">Battle Stats & Insights</h3>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-gray-800/80 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center shadow-inner">
-                  <div className="bg-blue-500/10 p-2 rounded-xl mb-3">
-                    <Users className="w-5 h-5 text-blue-400" />
+                <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col items-center text-center">
+                  <div className="bg-white p-2 rounded-xl mb-3 shadow-sm border border-gray-100">
+                    <Users className="w-5 h-5 text-gray-600" />
                   </div>
                   <span className="text-xl font-bold mb-1">{results.total.toLocaleString()}</span>
-                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Total Votes</span>
+                  <span className="text-[10px] text-gray-500 uppercase tracking-wider">Total Votes</span>
                 </div>
 
-                <div className="bg-gray-800/80 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center shadow-inner">
-                  <div className="bg-purple-500/10 p-2 rounded-xl mb-3">
-                    <Clock className="w-5 h-5 text-purple-400" />
+                <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col items-center text-center">
+                  <div className="bg-white p-2 rounded-xl mb-3 shadow-sm border border-gray-100">
+                    <Clock className="w-5 h-5 text-gray-600" />
                   </div>
                   <span className="text-xl font-bold mb-1">Live</span>
-                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Realtime Sync</span>
+                  <span className="text-[10px] text-gray-500 uppercase tracking-wider">Realtime Sync</span>
                 </div>
 
-                <div className="bg-gray-800/80 border border-white/5 p-4 rounded-2xl flex flex-col items-center text-center shadow-inner">
-                  <div className="bg-orange-500/10 p-2 rounded-xl mb-3">
-                    <Flame className="w-5 h-5 text-orange-400" />
+                <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col items-center text-center">
+                  <div className="bg-white p-2 rounded-xl mb-3 shadow-sm border border-gray-100">
+                    <Flame className="w-5 h-5 text-gray-600" />
                   </div>
                   <span className="text-xl font-bold mb-1">Active</span>
-                  <span className="text-[10px] text-gray-400 uppercase tracking-wider">Engagement Level</span>
+                  <span className="text-[10px] text-gray-500 uppercase tracking-wider">Engagement Level</span>
                 </div>
               </div>
 
               {/* Analysis Box */}
-              <div className="bg-red-950/30 border border-red-500/20 rounded-2xl p-4 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-red-400">
+              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-gray-700">
                   <Info className="w-4 h-4" />
                   <span className="text-sm font-bold">Battle Analysis</span>
                 </div>
-                <p className="text-xs text-gray-300 leading-relaxed">
+                <p className="text-xs text-gray-500 leading-relaxed">
                   {results.applePercent > results.androidPercent 
                     ? `Apple is dominating this battle with a commanding lead of ${results.applePercent}%. While Android is fighting back, the clear preference among voters is evident. Can the underdog make a comeback?`
                     : results.androidPercent > results.applePercent 
