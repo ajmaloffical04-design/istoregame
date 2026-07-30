@@ -177,12 +177,12 @@ export default function CampaignArena() {
           <motion.div
             onClick={() => handleVote('apple')}
             whileHover={!voted ? { y: -6, transition: { duration: 0.2 } } : {}}
-            className={`flex-1 bg-white rounded-[2rem] p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
+            className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[2rem] p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
               voted === 'apple' 
                 ? 'border-2 border-[#737373] shadow-[0_12px_30px_rgba(115,115,115,0.12)]' 
                 : voted 
-                  ? 'border border-gray-100 opacity-60' 
-                  : 'border border-gray-100 hover:shadow-xl hover:border-gray-200'
+                  ? 'opacity-60' 
+                  : 'hover:shadow-xl'
             }`}
           >
             {/* Top Badge */}
@@ -251,12 +251,12 @@ export default function CampaignArena() {
           <motion.div
             onClick={() => handleVote('android')}
             whileHover={!voted ? { y: -6, transition: { duration: 0.2 } } : {}}
-            className={`flex-1 bg-white rounded-[2rem] p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
+            className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[2rem] p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
               voted === 'android' 
                 ? 'border-2 border-black shadow-[0_12px_30px_rgba(0,0,0,0.12)]' 
                 : voted 
-                  ? 'border border-gray-100 opacity-60' 
-                  : 'border border-gray-100 hover:shadow-xl hover:border-gray-200'
+                  ? 'opacity-60' 
+                  : 'hover:shadow-xl'
             }`}
           >
             {/* Top Badge */}
@@ -388,7 +388,7 @@ export default function CampaignArena() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="w-full bg-white border border-gray-150 rounded-3xl p-6 shadow-sm text-gray-800"
+              className="w-full bg-white/60 backdrop-blur-md border border-white/80 rounded-3xl p-6 shadow-lg text-gray-800"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-gray-50 p-2.5 rounded-xl border border-gray-100">
