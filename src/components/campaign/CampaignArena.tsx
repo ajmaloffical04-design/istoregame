@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { BarChart3, Users, Clock, Flame, Info, Menu } from "lucide-react";
+import { BarChart3, Users, Clock, Flame, Info, Menu, Share2 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { supabase } from "@/lib/supabase";
 
@@ -179,14 +179,14 @@ export default function CampaignArena() {
             whileHover={!voted ? { y: -6, transition: { duration: 0.2 } } : {}}
             className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
               voted === 'apple' 
-                ? 'border-2 border-[#737373] shadow-[0_12px_30px_rgba(115,115,115,0.12)]' 
+                ? 'border-2 border-[#1F8A4D] shadow-[0_12px_30px_rgba(31,138,77,0.12)]' 
                 : voted 
                   ? 'opacity-60' 
                   : 'hover:shadow-xl'
             }`}
           >
             {/* Top Badge */}
-            <div className="bg-[#737373] text-white text-[8px] md:text-[10px] font-bold px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1.5">
+            <div className="bg-[#1F8A4D] text-white text-[8px] md:text-[10px] font-bold px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1.5">
               <Image 
                 src="/ios.png" 
                 alt="iOS Logo" 
@@ -200,8 +200,8 @@ export default function CampaignArena() {
 
             {/* Checkmark Badge if voted */}
             {voted === 'apple' && (
-              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-5 h-5 md:w-7 md:h-7 bg-[#737373] rounded-full flex items-center justify-center shadow-md">
-                <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-5 h-5 md:w-7 md:h-7 bg-[#1F8A4D] rounded-full flex items-center justify-center shadow-md">
+                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -234,7 +234,7 @@ export default function CampaignArena() {
                 <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&fit=crop&q=80" alt="voter" />
               </div>
               {/* Votes Pill */}
-              <div className="bg-gray-100 text-gray-700 font-bold text-[9px] md:text-xs px-2 md:px-3.5 py-1 md:py-1.5 rounded-full shadow-sm">
+              <div className="bg-[#E8F8F0] text-[#1F8A4D] font-bold text-[9px] md:text-xs px-2 md:px-3.5 py-1 md:py-1.5 rounded-full shadow-sm">
                 {results ? `${results.apple.toLocaleString()} votes` : '...'}
               </div>
             </div>
@@ -246,14 +246,14 @@ export default function CampaignArena() {
             whileHover={!voted ? { y: -6, transition: { duration: 0.2 } } : {}}
             className={`flex-1 bg-white/60 backdrop-blur-md border border-white/80 rounded-[1.5rem] md:rounded-[2rem] p-3 md:p-6 flex flex-col items-center relative transition-all duration-300 cursor-pointer select-none ${
               voted === 'android' 
-                ? 'border-2 border-black shadow-[0_12px_30px_rgba(0,0,0,0.12)]' 
+                ? 'border-2 border-[#7F3DAB] shadow-[0_12px_30px_rgba(127,61,171,0.12)]' 
                 : voted 
                   ? 'opacity-60' 
                   : 'hover:shadow-xl'
             }`}
           >
             {/* Top Badge */}
-            <div className="bg-black text-white text-[8px] md:text-[10px] font-bold px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1.5">
+            <div className="bg-[#7F3DAB] text-white text-[8px] md:text-[10px] font-bold px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full tracking-wider uppercase mb-3 md:mb-6 flex items-center gap-1.5">
               <Image 
                 src="/andriod.png" 
                 alt="Android Logo" 
@@ -267,8 +267,8 @@ export default function CampaignArena() {
 
             {/* Checkmark Badge if voted */}
             {voted === 'android' && (
-              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-5 h-5 md:w-7 md:h-7 bg-black rounded-full flex items-center justify-center shadow-md">
-                <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+              <div className="absolute top-2 right-2 md:top-4 md:right-4 w-5 h-5 md:w-7 md:h-7 bg-[#7F3DAB] rounded-full flex items-center justify-center shadow-md">
+                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -300,7 +300,7 @@ export default function CampaignArena() {
                 <img className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=80&fit=crop&q=80" alt="voter" />
               </div>
               {/* Votes Pill */}
-              <div className="bg-gray-100 text-black font-bold text-[9px] md:text-xs px-2 md:px-3.5 py-1 md:py-1.5 rounded-full shadow-sm">
+              <div className="bg-[#F3EBF7] text-[#7F3DAB] font-bold text-[9px] md:text-xs px-2 md:px-3.5 py-1 md:py-1.5 rounded-full shadow-sm">
                 {results ? `${results.android.toLocaleString()} votes` : '...'}
               </div>
             </div>
@@ -313,59 +313,116 @@ export default function CampaignArena() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="w-full mb-8 flex flex-col gap-5"
+              className="w-full mb-8 flex flex-col gap-4"
             >
               {/* Apple Progress Bar */}
-              <div className="flex items-center w-full gap-5">
-                <div className="w-20 text-left text-[#737373] text-3xl font-extrabold tracking-tight">
-                  {results.applePercent}%
-                </div>
-                <div className="flex-1 relative h-16 bg-[#EFF1F5] rounded-full overflow-hidden border border-gray-100 shadow-inner flex items-center">
+              <div className="flex items-center w-full gap-4">
+                <div className="flex-1 relative h-16 bg-[#EFF1F5] rounded-[1.25rem] overflow-hidden border border-gray-100 shadow-inner flex items-center justify-between p-1.5">
                   <motion.div 
                     initial={{ width: 0 }} 
-                    animate={{ width: `${Math.max(results.applePercent, 12)}%` }} 
+                    animate={{ width: `${Math.max(results.applePercent, 25)}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="h-full bg-[#737373] rounded-full flex items-center relative pl-6 shadow-md"
+                    className="absolute left-1.5 top-1.5 bottom-1.5 bg-[#1F8A4D] rounded-xl flex items-center pl-2 z-0 shadow-sm pr-4 overflow-hidden"
                   >
-                    <div className="flex flex-col text-white whitespace-nowrap overflow-hidden">
-                      <span className="font-bold text-sm leading-tight">Team Apple</span>
-                      <span className="text-[10px] text-gray-200 font-medium">{results.apple.toLocaleString()} votes</span>
+                    <div className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden p-1.5 shrink-0">
+                      <Image src="/ios.png" alt="iOS Logo" width={24} height={24} className="object-contain" unoptimized />
+                    </div>
+                    <div className="ml-3 flex flex-col text-white whitespace-nowrap text-left">
+                      <span className="font-extrabold text-sm leading-tight">Team Apple</span>
+                      <span className="text-[10px] text-emerald-100 font-medium">{results.apple.toLocaleString()} votes</span>
                     </div>
                   </motion.div>
-                  {/* Absolute Badge on far right of track */}
-                  <div className="absolute right-3 w-10 h-10 bg-white rounded-full border-2 border-gray-400 flex items-center justify-center shadow-md z-10 overflow-hidden p-1.5">
-                    <Image src="/ios.png" alt="iOS Logo" width={28} height={28} className="object-contain" unoptimized />
-                  </div>
+                  <span className={`ml-auto font-extrabold text-lg pr-4 z-10 transition-colors duration-300 ${
+                    results.applePercent > 75 ? 'text-white' : 'text-[#1F8A4D]'
+                  }`}>
+                    {results.applePercent}%
+                  </span>
                 </div>
               </div>
 
               {/* Android Progress Bar */}
-              <div className="flex items-center w-full gap-5">
-                <div className="w-20 text-left text-black text-3xl font-extrabold tracking-tight">
-                  {results.androidPercent}%
-                </div>
-                <div className="flex-1 relative h-16 bg-[#EFF1F5] rounded-full overflow-hidden border border-gray-100 shadow-inner flex items-center">
+              <div className="flex items-center w-full gap-4">
+                <div className="flex-1 relative h-16 bg-[#EFF1F5] rounded-[1.25rem] overflow-hidden border border-gray-100 shadow-inner flex items-center justify-between p-1.5">
                   <motion.div 
                     initial={{ width: 0 }} 
-                    animate={{ width: `${Math.max(results.androidPercent, 12)}%` }} 
+                    animate={{ width: `${Math.max(results.androidPercent, 25)}%` }} 
                     transition={{ duration: 1, ease: "easeOut" }} 
-                    className="h-full bg-black rounded-full flex items-center relative pl-6 shadow-md"
+                    className="absolute left-1.5 top-1.5 bottom-1.5 bg-[#7F3DAB] rounded-xl flex items-center pl-2 z-0 shadow-sm pr-4 overflow-hidden"
                   >
-                    <div className="flex flex-col text-white whitespace-nowrap overflow-hidden">
-                      <span className="font-bold text-sm leading-tight">Team Android</span>
-                      <span className="text-[10px] text-gray-300 font-medium">{results.android.toLocaleString()} votes</span>
+                    <div className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden p-1.5 shrink-0">
+                      <Image src="/andriod.png" alt="Android Logo" width={24} height={24} className="object-contain" unoptimized />
+                    </div>
+                    <div className="ml-3 flex flex-col text-white whitespace-nowrap text-left">
+                      <span className="font-extrabold text-sm leading-tight">Team Android</span>
+                      <span className="text-[10px] text-purple-100 font-medium">{results.android.toLocaleString()} votes</span>
                     </div>
                   </motion.div>
-                  {/* Absolute Badge on far right of track */}
-                  <div className="absolute right-3 w-10 h-10 bg-white rounded-full border-2 border-gray-800 flex items-center justify-center shadow-md z-10 overflow-hidden p-1.5">
-                    <Image src="/andriod.png" alt="Android Logo" width={28} height={28} className="object-contain" unoptimized />
-                  </div>
+                  <span className={`ml-auto font-extrabold text-lg pr-4 z-10 transition-colors duration-300 ${
+                    results.androidPercent > 75 ? 'text-white' : 'text-[#7F3DAB]'
+                  }`}>
+                    {results.androidPercent}%
+                  </span>
                 </div>
               </div>
 
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Success Card (Only when voted) */}
+        <AnimatePresence>
+          {voted && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`w-full p-6 rounded-[1.5rem] mb-6 flex items-start gap-4 border ${
+                voted === 'apple' 
+                  ? 'bg-[#E8F8F0] border-emerald-100 text-emerald-800' 
+                  : 'bg-[#F3EBF7] border-purple-100 text-purple-800'
+              }`}
+            >
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center shadow-sm shrink-0 ${
+                voted === 'apple' ? 'bg-[#1F8A4D]' : 'bg-[#7F3DAB]'
+              }`}>
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div className="flex-1 flex flex-col gap-1 text-left">
+                <h4 className="font-extrabold text-sm leading-tight">
+                  Thanks! Your vote for Team {voted === 'apple' ? 'Apple' : 'Android'} has been recorded.
+                </h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-medium">
+                  Keep sharing and invite your friends to vote! Let's see which team wins.
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Share Button (Only when voted) */}
+        {voted && (
+          <button 
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({
+                  title: 'Apple vs Android Battle',
+                  text: 'Vote in the ultimate Apple vs Android showdown!',
+                  url: window.location.href,
+                }).catch(err => console.log(err));
+              } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copied to clipboard! Share it with your friends.');
+              }
+            }}
+            className={`w-full bg-white border py-4 rounded-[1.25rem] flex items-center justify-center gap-2 hover:bg-gray-50 transition shadow-sm font-bold text-sm mb-12 ${
+              voted === 'apple' ? 'text-[#1F8A4D] border-emerald-100' : 'text-[#7F3DAB] border-purple-100'
+            }`}
+          >
+            <Share2 className="w-4 h-4" />
+            <span>Share & Invite Friends</span>
+          </button>
+        )}
 
         {/* Total Votes Pill */}
         {results && (
