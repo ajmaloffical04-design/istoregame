@@ -10,7 +10,7 @@
   --color-apple-glow: rgba(255, 255, 255, 0.4);
   --color-android-glow: rgba(61, 220, 132, 0.4);
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-manrope);
 }
 
 :root {
