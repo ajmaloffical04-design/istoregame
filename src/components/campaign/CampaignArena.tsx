@@ -324,8 +324,8 @@ export default function CampaignArena() {
                     </div>
                   </motion.div>
                   {/* Absolute Badge on far right of track */}
-                  <div className="absolute right-3 w-10 h-10 bg-white rounded-full border-2 border-emerald-500 flex items-center justify-center shadow-md text-lg z-10">
-                    🍎
+                  <div className="absolute right-3 w-10 h-10 bg-white rounded-full border-2 border-emerald-500 flex items-center justify-center shadow-md z-10 overflow-hidden p-1.5">
+                    <Image src="/ios.png" alt="iOS Logo" width={28} height={28} className="object-contain" unoptimized />
                   </div>
                 </div>
               </div>
@@ -348,8 +348,8 @@ export default function CampaignArena() {
                     </div>
                   </motion.div>
                   {/* Absolute Badge on far right of track */}
-                  <div className="absolute right-3 w-10 h-10 bg-white rounded-full border-2 border-purple-500/30 flex items-center justify-center shadow-md text-lg z-10">
-                    🤖
+                  <div className="absolute right-3 w-10 h-10 bg-white rounded-full border-2 border-purple-500/30 flex items-center justify-center shadow-md z-10 overflow-hidden p-1.5">
+                    <Image src="/andriod.png" alt="Android Logo" width={28} height={28} className="object-contain" unoptimized />
                   </div>
                 </div>
               </div>
